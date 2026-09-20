@@ -100,22 +100,38 @@ document your observations.
 ## Your code here!
 
 diamonds %>%
-  ggplot() +
-  geom_point(aes(carat, price))
+  ggplot(
+    mapping = aes(
+      x = carat,
+      y = price
+    )
+  ) +
+  geom_point()
 ```
 
 ![](c00-diamonds-assignment_files/figure-gfm/q1-task-1.png)<!-- -->
 
 **Observations**:
 
-- Price tends to increase with carat value, maybe an exponential
-  relationship.
+- Price tends to increase with carat value, following a power law
+  relationship (see the log-log plot below, on which the points form a
+  straight line).
 - Most of the diamonds in the dataset are between 0 and 3 carat.
 - Prices don’t go higher than 18,000 or 20,000 and abruptly cut off at
   that price.
 - Carat values seem to be more concentrated at and slightly above round
   numbers like 1, 1.5, 2, and 2.5, but less concentrated slightly below
   those values.
+
+``` r
+diamonds %>%
+  ggplot(aes(x = carat, y = price)) +
+  geom_point() +
+  scale_x_log10() +
+  scale_y_log10()
+```
+
+![](c00-diamonds-assignment_files/figure-gfm/unnamed-chunk-1-1.png)<!-- -->
 
 ### **q2** Create a visualization showing variables `carat`, `price`, and `cut` simultaneously. Experiment with which variable you assign to which aesthetic (`x`, `y`, etc.) to find an effective visual.
 
