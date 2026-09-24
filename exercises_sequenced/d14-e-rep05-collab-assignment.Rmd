@@ -1,6 +1,6 @@
 ---
 title: "Reproducibility: Collaborating with GitHub"
-author: Isabella
+author: Isabella, Zara
 date: 2020-07-20
 output: github_document
 time: 60
